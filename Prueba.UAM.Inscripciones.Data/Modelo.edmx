@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PRUEBA_UAMModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ASPIRANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRIMER_NOMBRE" Type="varchar" MaxLength="100" />
+          <Property Name="SEGUNDO_NOMBRE" Type="varchar" MaxLength="100" />
+          <Property Name="PRIMER_APELLIDO" Type="varchar" MaxLength="100" />
+          <Property Name="SEGUNDO_APELLIDO" Type="varchar" MaxLength="100" />
+          <Property Name="NACIMIENTO" Type="date" />
+          <Property Name="ID_GENERO" Type="int" />
+          <Property Name="ID_CIUDAD_NACIMIENTO" Type="int" />
+          <Property Name="ID_GRUPO_SANGUINEO" Type="int" />
+          <Property Name="IDENTIFICACION" Type="varchar" MaxLength="20" />
+          <Property Name="ID_CIUDAD_EXPEDICION" Type="int" />
+          <Property Name="ID_ESTADO_CIVIL" Type="int" />
+          <Property Name="ID_TIPO_DOCUMENTO" Type="int" />
+          <Property Name="FECHA_EXPEDICION" Type="date" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO" Type="int" />
+          <Property Name="CIUDAD" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_PAIS" Type="int" />
+          <Property Name="DEPARTAMENTO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ESTADO_CIVIL" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GENERO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GENERO" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GRUPO_SANGUINEO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GRUPO_SANGUINEO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="INSCRIPCION_ASPIRANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_ASPIRANTE" Type="int" />
+          <Property Name="ID_TIPO_ASPIRANTE" Type="int" />
+          <Property Name="ID_MODALIDAD" Type="int" />
+          <Property Name="ID_PROGRAMA_ACADEMICO" Type="int" />
+          <Property Name="ID_SEDE" Type="int" />
+          <Property Name="ID_PERIODO_ACADEMICO" Type="int" />
+          <Property Name="ESTADO" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="MODALIDAD_ESTUDIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MODALIDAD" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAIS" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PERIODO_ACADEMICO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERIODO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PROGRAMA_ACADEMICO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PROGRAMA_ACADEMICO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SEDE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SEDE" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TIPO_ASPIRANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TIPO" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ESTADO_CIVIL" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__ASPIRANTE__ID_CI__3E52440B">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_CIUDAD_NACIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_CI__403A8C7D">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_CIUDAD_EXPEDICION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_ES__412EB0B6">
+          <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_CIVIL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_ESTADO_CIVIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_GE__3D5E1FD2">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_GENERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_GR__3F466844">
+          <End Role="GRUPO_SANGUINEO" Type="Self.GRUPO_SANGUINEO" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_SANGUINEO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_GRUPO_SANGUINEO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_TI__4222D4EF">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CIUDAD__ID_DEPAR__2F10007B">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CIUDAD">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DEPARTAME__ID_PA__2C3393D0">
+          <End Role="PAIS" Type="Self.PAIS" Multiplicity="0..1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_PAIS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_AS__5629CD9C">
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASPIRANTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_ASPIRANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_MO__5812160E">
+          <End Role="MODALIDAD_ESTUDIO" Type="Self.MODALIDAD_ESTUDIO" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODALIDAD_ESTUDIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_MODALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_PE__5AEE82B9">
+          <End Role="PERIODO_ACADEMICO" Type="Self.PERIODO_ACADEMICO" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERIODO_ACADEMICO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_PERIODO_ACADEMICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_PR__59063A47">
+          <End Role="PROGRAMA_ACADEMICO" Type="Self.PROGRAMA_ACADEMICO" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROGRAMA_ACADEMICO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_PROGRAMA_ACADEMICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_SE__59FA5E80">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_SEDE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_TI__571DF1D5">
+          <End Role="TIPO_ASPIRANTE" Type="Self.TIPO_ASPIRANTE" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_ASPIRANTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_TIPO_ASPIRANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="ASPIRANTES_INSCRITOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="PRUEBA_UAMModelStoreContainer">
+          <EntitySet Name="ASPIRANTE" EntityType="Self.ASPIRANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CIUDAD" EntityType="Self.CIUDAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GENERO" EntityType="Self.GENERO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GRUPO_SANGUINEO" EntityType="Self.GRUPO_SANGUINEO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INSCRIPCION_ASPIRANTE" EntityType="Self.INSCRIPCION_ASPIRANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MODALIDAD_ESTUDIO" EntityType="Self.MODALIDAD_ESTUDIO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAIS" EntityType="Self.PAIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PERIODO_ACADEMICO" EntityType="Self.PERIODO_ACADEMICO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PROGRAMA_ACADEMICO" EntityType="Self.PROGRAMA_ACADEMICO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SEDE" EntityType="Self.SEDE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_ASPIRANTE" EntityType="Self.TIPO_ASPIRANTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ASPIRANTE__ID_CI__3E52440B" Association="Self.FK__ASPIRANTE__ID_CI__3E52440B">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_CI__403A8C7D" Association="Self.FK__ASPIRANTE__ID_CI__403A8C7D">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_ES__412EB0B6" Association="Self.FK__ASPIRANTE__ID_ES__412EB0B6">
+            <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_GE__3D5E1FD2" Association="Self.FK__ASPIRANTE__ID_GE__3D5E1FD2">
+            <End Role="GENERO" EntitySet="GENERO" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_GR__3F466844" Association="Self.FK__ASPIRANTE__ID_GR__3F466844">
+            <End Role="GRUPO_SANGUINEO" EntitySet="GRUPO_SANGUINEO" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_TI__4222D4EF" Association="Self.FK__ASPIRANTE__ID_TI__4222D4EF">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CIUDAD__ID_DEPAR__2F10007B" Association="Self.FK__CIUDAD__ID_DEPAR__2F10007B">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DEPARTAME__ID_PA__2C3393D0" Association="Self.FK__DEPARTAME__ID_PA__2C3393D0">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_AS__5629CD9C" Association="Self.FK__INSCRIPCI__ID_AS__5629CD9C">
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_MO__5812160E" Association="Self.FK__INSCRIPCI__ID_MO__5812160E">
+            <End Role="MODALIDAD_ESTUDIO" EntitySet="MODALIDAD_ESTUDIO" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_PE__5AEE82B9" Association="Self.FK__INSCRIPCI__ID_PE__5AEE82B9">
+            <End Role="PERIODO_ACADEMICO" EntitySet="PERIODO_ACADEMICO" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_PR__59063A47" Association="Self.FK__INSCRIPCI__ID_PR__59063A47">
+            <End Role="PROGRAMA_ACADEMICO" EntitySet="PROGRAMA_ACADEMICO" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_SE__59FA5E80" Association="Self.FK__INSCRIPCI__ID_SE__59FA5E80">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_TI__571DF1D5" Association="Self.FK__INSCRIPCI__ID_TI__571DF1D5">
+            <End Role="TIPO_ASPIRANTE" EntitySet="TIPO_ASPIRANTE" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PRUEBA_UAMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ASPIRANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRIMER_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SEGUNDO_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PRIMER_APELLIDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SEGUNDO_APELLIDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NACIMIENTO" Type="DateTime" Precision="0" />
+          <Property Name="ID_GENERO" Type="Int32" />
+          <Property Name="ID_CIUDAD_NACIMIENTO" Type="Int32" />
+          <Property Name="ID_GRUPO_SANGUINEO" Type="Int32" />
+          <Property Name="IDENTIFICACION" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ID_CIUDAD_EXPEDICION" Type="Int32" />
+          <Property Name="ID_ESTADO_CIVIL" Type="Int32" />
+          <Property Name="ID_TIPO_DOCUMENTO" Type="Int32" />
+          <Property Name="FECHA_EXPEDICION" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CIUDAD" Relationship="Self.FK__ASPIRANTE__ID_CI__3E52440B" FromRole="ASPIRANTE" ToRole="CIUDAD" />
+          <NavigationProperty Name="CIUDAD1" Relationship="Self.FK__ASPIRANTE__ID_CI__403A8C7D" FromRole="ASPIRANTE" ToRole="CIUDAD" />
+          <NavigationProperty Name="ESTADO_CIVIL" Relationship="Self.FK__ASPIRANTE__ID_ES__412EB0B6" FromRole="ASPIRANTE" ToRole="ESTADO_CIVIL" />
+          <NavigationProperty Name="GENERO" Relationship="Self.FK__ASPIRANTE__ID_GE__3D5E1FD2" FromRole="ASPIRANTE" ToRole="GENERO" />
+          <NavigationProperty Name="GRUPO_SANGUINEO" Relationship="Self.FK__ASPIRANTE__ID_GR__3F466844" FromRole="ASPIRANTE" ToRole="GRUPO_SANGUINEO" />
+          <NavigationProperty Name="TIPO_DOCUMENTO" Relationship="Self.FK__ASPIRANTE__ID_TI__4222D4EF" FromRole="ASPIRANTE" ToRole="TIPO_DOCUMENTO" />
+          <NavigationProperty Name="INSCRIPCION_ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_AS__5629CD9C" FromRole="ASPIRANTE" ToRole="INSCRIPCION_ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="CIUDAD">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_DEPARTAMENTO" Type="Int32" />
+          <Property Name="CIUDAD1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ASPIRANTE" Relationship="Self.FK__ASPIRANTE__ID_CI__3E52440B" FromRole="CIUDAD" ToRole="ASPIRANTE" />
+          <NavigationProperty Name="ASPIRANTE1" Relationship="Self.FK__ASPIRANTE__ID_CI__403A8C7D" FromRole="CIUDAD" ToRole="ASPIRANTE" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="Self.FK__CIUDAD__ID_DEPAR__2F10007B" FromRole="CIUDAD" ToRole="DEPARTAMENTO" />
+        </EntityType>
+        <EntityType Name="DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_PAIS" Type="Int32" />
+          <Property Name="DEPARTAMENTO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="CIUDAD" Relationship="Self.FK__CIUDAD__ID_DEPAR__2F10007B" FromRole="DEPARTAMENTO" ToRole="CIUDAD" />
+          <NavigationProperty Name="PAIS" Relationship="Self.FK__DEPARTAME__ID_PA__2C3393D0" FromRole="DEPARTAMENTO" ToRole="PAIS" />
+        </EntityType>
+        <EntityType Name="ESTADO_CIVIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO_CIVIL1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ASPIRANTE" Relationship="Self.FK__ASPIRANTE__ID_ES__412EB0B6" FromRole="ESTADO_CIVIL" ToRole="ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="GENERO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GENERO1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ASPIRANTE" Relationship="Self.FK__ASPIRANTE__ID_GE__3D5E1FD2" FromRole="GENERO" ToRole="ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="GRUPO_SANGUINEO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GRUPO_SANGUINEO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ASPIRANTE" Relationship="Self.FK__ASPIRANTE__ID_GR__3F466844" FromRole="GRUPO_SANGUINEO" ToRole="ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="INSCRIPCION_ASPIRANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_ASPIRANTE" Type="Int32" />
+          <Property Name="ID_TIPO_ASPIRANTE" Type="Int32" />
+          <Property Name="ID_MODALIDAD" Type="Int32" />
+          <Property Name="ID_PROGRAMA_ACADEMICO" Type="Int32" />
+          <Property Name="ID_SEDE" Type="Int32" />
+          <Property Name="ID_PERIODO_ACADEMICO" Type="Int32" />
+          <NavigationProperty Name="ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_AS__5629CD9C" FromRole="INSCRIPCION_ASPIRANTE" ToRole="ASPIRANTE" />
+          <NavigationProperty Name="MODALIDAD_ESTUDIO" Relationship="Self.FK__INSCRIPCI__ID_MO__5812160E" FromRole="INSCRIPCION_ASPIRANTE" ToRole="MODALIDAD_ESTUDIO" />
+          <NavigationProperty Name="PERIODO_ACADEMICO" Relationship="Self.FK__INSCRIPCI__ID_PE__5AEE82B9" FromRole="INSCRIPCION_ASPIRANTE" ToRole="PERIODO_ACADEMICO" />
+          <NavigationProperty Name="PROGRAMA_ACADEMICO" Relationship="Self.FK__INSCRIPCI__ID_PR__59063A47" FromRole="INSCRIPCION_ASPIRANTE" ToRole="PROGRAMA_ACADEMICO" />
+          <NavigationProperty Name="SEDE" Relationship="Self.FK__INSCRIPCI__ID_SE__59FA5E80" FromRole="INSCRIPCION_ASPIRANTE" ToRole="SEDE" />
+          <NavigationProperty Name="TIPO_ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_TI__571DF1D5" FromRole="INSCRIPCION_ASPIRANTE" ToRole="TIPO_ASPIRANTE" />
+          <Property Name="ESTADO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="MODALIDAD_ESTUDIO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MODALIDAD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INSCRIPCION_ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_MO__5812160E" FromRole="MODALIDAD_ESTUDIO" ToRole="INSCRIPCION_ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="PAIS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAIS1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DEPARTAMENTO" Relationship="Self.FK__DEPARTAME__ID_PA__2C3393D0" FromRole="PAIS" ToRole="DEPARTAMENTO" />
+        </EntityType>
+        <EntityType Name="PERIODO_ACADEMICO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERIODO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INSCRIPCION_ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_PE__5AEE82B9" FromRole="PERIODO_ACADEMICO" ToRole="INSCRIPCION_ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="PROGRAMA_ACADEMICO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PROGRAMA_ACADEMICO1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INSCRIPCION_ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_PR__59063A47" FromRole="PROGRAMA_ACADEMICO" ToRole="INSCRIPCION_ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="SEDE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SEDE1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INSCRIPCION_ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_SE__59FA5E80" FromRole="SEDE" ToRole="INSCRIPCION_ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TIPO_ASPIRANTE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TIPO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INSCRIPCION_ASPIRANTE" Relationship="Self.FK__INSCRIPCI__ID_TI__571DF1D5" FromRole="TIPO_ASPIRANTE" ToRole="INSCRIPCION_ASPIRANTE" />
+        </EntityType>
+        <EntityType Name="TIPO_DOCUMENTO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ESTADO_CIVIL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ASPIRANTE" Relationship="Self.FK__ASPIRANTE__ID_TI__4222D4EF" FromRole="TIPO_DOCUMENTO" ToRole="ASPIRANTE" />
+        </EntityType>
+        <Association Name="FK__ASPIRANTE__ID_CI__3E52440B">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_CIUDAD_NACIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_CI__403A8C7D">
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CIUDAD">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_CIUDAD_EXPEDICION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_ES__412EB0B6">
+          <End Role="ESTADO_CIVIL" Type="Self.ESTADO_CIVIL" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO_CIVIL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_ESTADO_CIVIL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_GE__3D5E1FD2">
+          <End Role="GENERO" Type="Self.GENERO" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GENERO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_GENERO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_GR__3F466844">
+          <End Role="GRUPO_SANGUINEO" Type="Self.GRUPO_SANGUINEO" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GRUPO_SANGUINEO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_GRUPO_SANGUINEO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ASPIRANTE__ID_TI__4222D4EF">
+          <End Role="TIPO_DOCUMENTO" Type="Self.TIPO_DOCUMENTO" Multiplicity="0..1" />
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_DOCUMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ASPIRANTE">
+              <PropertyRef Name="ID_TIPO_DOCUMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_AS__5629CD9C">
+          <End Role="ASPIRANTE" Type="Self.ASPIRANTE" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ASPIRANTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_ASPIRANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CIUDAD__ID_DEPAR__2F10007B">
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="0..1" />
+          <End Role="CIUDAD" Type="Self.CIUDAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPARTAMENTO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CIUDAD">
+              <PropertyRef Name="ID_DEPARTAMENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DEPARTAME__ID_PA__2C3393D0">
+          <End Role="PAIS" Type="Self.PAIS" Multiplicity="0..1" />
+          <End Role="DEPARTAMENTO" Type="Self.DEPARTAMENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PAIS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="DEPARTAMENTO">
+              <PropertyRef Name="ID_PAIS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_MO__5812160E">
+          <End Role="MODALIDAD_ESTUDIO" Type="Self.MODALIDAD_ESTUDIO" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MODALIDAD_ESTUDIO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_MODALIDAD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_PE__5AEE82B9">
+          <End Role="PERIODO_ACADEMICO" Type="Self.PERIODO_ACADEMICO" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PERIODO_ACADEMICO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_PERIODO_ACADEMICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_PR__59063A47">
+          <End Role="PROGRAMA_ACADEMICO" Type="Self.PROGRAMA_ACADEMICO" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROGRAMA_ACADEMICO">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_PROGRAMA_ACADEMICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_SE__59FA5E80">
+          <End Role="SEDE" Type="Self.SEDE" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SEDE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_SEDE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INSCRIPCI__ID_TI__571DF1D5">
+          <End Role="TIPO_ASPIRANTE" Type="Self.TIPO_ASPIRANTE" Multiplicity="0..1" />
+          <End Role="INSCRIPCION_ASPIRANTE" Type="Self.INSCRIPCION_ASPIRANTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_ASPIRANTE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="INSCRIPCION_ASPIRANTE">
+              <PropertyRef Name="ID_TIPO_ASPIRANTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PRUEBA_UAMEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ASPIRANTE" EntityType="Self.ASPIRANTE" />
+          <EntitySet Name="CIUDAD" EntityType="Self.CIUDAD" />
+          <EntitySet Name="DEPARTAMENTO" EntityType="Self.DEPARTAMENTO" />
+          <EntitySet Name="ESTADO_CIVIL" EntityType="Self.ESTADO_CIVIL" />
+          <EntitySet Name="GENERO" EntityType="Self.GENERO" />
+          <EntitySet Name="GRUPO_SANGUINEO" EntityType="Self.GRUPO_SANGUINEO" />
+          <EntitySet Name="INSCRIPCION_ASPIRANTE" EntityType="Self.INSCRIPCION_ASPIRANTE" />
+          <EntitySet Name="MODALIDAD_ESTUDIO" EntityType="Self.MODALIDAD_ESTUDIO" />
+          <EntitySet Name="PAIS" EntityType="Self.PAIS" />
+          <EntitySet Name="PERIODO_ACADEMICO" EntityType="Self.PERIODO_ACADEMICO" />
+          <EntitySet Name="PROGRAMA_ACADEMICO" EntityType="Self.PROGRAMA_ACADEMICO" />
+          <EntitySet Name="SEDE" EntityType="Self.SEDE" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TIPO_ASPIRANTE" EntityType="Self.TIPO_ASPIRANTE" />
+          <EntitySet Name="TIPO_DOCUMENTO" EntityType="Self.TIPO_DOCUMENTO" />
+          <AssociationSet Name="FK__ASPIRANTE__ID_CI__3E52440B" Association="Self.FK__ASPIRANTE__ID_CI__3E52440B">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_CI__403A8C7D" Association="Self.FK__ASPIRANTE__ID_CI__403A8C7D">
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_ES__412EB0B6" Association="Self.FK__ASPIRANTE__ID_ES__412EB0B6">
+            <End Role="ESTADO_CIVIL" EntitySet="ESTADO_CIVIL" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_GE__3D5E1FD2" Association="Self.FK__ASPIRANTE__ID_GE__3D5E1FD2">
+            <End Role="GENERO" EntitySet="GENERO" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_GR__3F466844" Association="Self.FK__ASPIRANTE__ID_GR__3F466844">
+            <End Role="GRUPO_SANGUINEO" EntitySet="GRUPO_SANGUINEO" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ASPIRANTE__ID_TI__4222D4EF" Association="Self.FK__ASPIRANTE__ID_TI__4222D4EF">
+            <End Role="TIPO_DOCUMENTO" EntitySet="TIPO_DOCUMENTO" />
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_AS__5629CD9C" Association="Self.FK__INSCRIPCI__ID_AS__5629CD9C">
+            <End Role="ASPIRANTE" EntitySet="ASPIRANTE" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CIUDAD__ID_DEPAR__2F10007B" Association="Self.FK__CIUDAD__ID_DEPAR__2F10007B">
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+            <End Role="CIUDAD" EntitySet="CIUDAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DEPARTAME__ID_PA__2C3393D0" Association="Self.FK__DEPARTAME__ID_PA__2C3393D0">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="DEPARTAMENTO" EntitySet="DEPARTAMENTO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_MO__5812160E" Association="Self.FK__INSCRIPCI__ID_MO__5812160E">
+            <End Role="MODALIDAD_ESTUDIO" EntitySet="MODALIDAD_ESTUDIO" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_PE__5AEE82B9" Association="Self.FK__INSCRIPCI__ID_PE__5AEE82B9">
+            <End Role="PERIODO_ACADEMICO" EntitySet="PERIODO_ACADEMICO" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_PR__59063A47" Association="Self.FK__INSCRIPCI__ID_PR__59063A47">
+            <End Role="PROGRAMA_ACADEMICO" EntitySet="PROGRAMA_ACADEMICO" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_SE__59FA5E80" Association="Self.FK__INSCRIPCI__ID_SE__59FA5E80">
+            <End Role="SEDE" EntitySet="SEDE" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INSCRIPCI__ID_TI__571DF1D5" Association="Self.FK__INSCRIPCI__ID_TI__571DF1D5">
+            <End Role="TIPO_ASPIRANTE" EntitySet="TIPO_ASPIRANTE" />
+            <End Role="INSCRIPCION_ASPIRANTE" EntitySet="INSCRIPCION_ASPIRANTE" />
+          </AssociationSet>
+          <FunctionImport Name="ASPIRANTES_INSCRITOS" ReturnType="Collection(PRUEBA_UAMModel.ASPIRANTES_INSCRITOS_Result)" />
+        </EntityContainer>
+        <ComplexType Name="ASPIRANTES_INSCRITOS_Result">
+          <Property Type="String" Name="ESTADO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SEDE" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PROGRAMA_ACADEMICO" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="PERIODO" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NOMBRES" Nullable="false" MaxLength="201" />
+          <Property Type="String" Name="APELLIDOS" Nullable="false" MaxLength="201" />
+          <Property Type="String" Name="IDENTIFICACION" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ESTADO_CIVIL" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="GENERO" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ESTADO_CIVIL1" Nullable="false" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PRUEBA_UAMModelStoreContainer" CdmEntityContainer="PRUEBA_UAMEntities">
+          <EntitySetMapping Name="ASPIRANTE">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.ASPIRANTE">
+              <MappingFragment StoreEntitySet="ASPIRANTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PRIMER_NOMBRE" ColumnName="PRIMER_NOMBRE" />
+                <ScalarProperty Name="SEGUNDO_NOMBRE" ColumnName="SEGUNDO_NOMBRE" />
+                <ScalarProperty Name="PRIMER_APELLIDO" ColumnName="PRIMER_APELLIDO" />
+                <ScalarProperty Name="SEGUNDO_APELLIDO" ColumnName="SEGUNDO_APELLIDO" />
+                <ScalarProperty Name="NACIMIENTO" ColumnName="NACIMIENTO" />
+                <ScalarProperty Name="ID_GENERO" ColumnName="ID_GENERO" />
+                <ScalarProperty Name="ID_CIUDAD_NACIMIENTO" ColumnName="ID_CIUDAD_NACIMIENTO" />
+                <ScalarProperty Name="ID_GRUPO_SANGUINEO" ColumnName="ID_GRUPO_SANGUINEO" />
+                <ScalarProperty Name="IDENTIFICACION" ColumnName="IDENTIFICACION" />
+                <ScalarProperty Name="ID_CIUDAD_EXPEDICION" ColumnName="ID_CIUDAD_EXPEDICION" />
+                <ScalarProperty Name="ID_ESTADO_CIVIL" ColumnName="ID_ESTADO_CIVIL" />
+                <ScalarProperty Name="ID_TIPO_DOCUMENTO" ColumnName="ID_TIPO_DOCUMENTO" />
+                <ScalarProperty Name="FECHA_EXPEDICION" ColumnName="FECHA_EXPEDICION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CIUDAD">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.CIUDAD">
+              <MappingFragment StoreEntitySet="CIUDAD">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_DEPARTAMENTO" ColumnName="ID_DEPARTAMENTO" />
+                <ScalarProperty Name="CIUDAD1" ColumnName="CIUDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPARTAMENTO">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="DEPARTAMENTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_PAIS" ColumnName="ID_PAIS" />
+                <ScalarProperty Name="DEPARTAMENTO1" ColumnName="DEPARTAMENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO_CIVIL">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.ESTADO_CIVIL">
+              <MappingFragment StoreEntitySet="ESTADO_CIVIL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ESTADO_CIVIL1" ColumnName="ESTADO_CIVIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GENERO">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.GENERO">
+              <MappingFragment StoreEntitySet="GENERO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GENERO1" ColumnName="GENERO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GRUPO_SANGUINEO">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.GRUPO_SANGUINEO">
+              <MappingFragment StoreEntitySet="GRUPO_SANGUINEO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GRUPO_SANGUINEO1" ColumnName="GRUPO_SANGUINEO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INSCRIPCION_ASPIRANTE">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.INSCRIPCION_ASPIRANTE">
+              <MappingFragment StoreEntitySet="INSCRIPCION_ASPIRANTE">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ID_ASPIRANTE" ColumnName="ID_ASPIRANTE" />
+                <ScalarProperty Name="ID_TIPO_ASPIRANTE" ColumnName="ID_TIPO_ASPIRANTE" />
+                <ScalarProperty Name="ID_MODALIDAD" ColumnName="ID_MODALIDAD" />
+                <ScalarProperty Name="ID_PROGRAMA_ACADEMICO" ColumnName="ID_PROGRAMA_ACADEMICO" />
+                <ScalarProperty Name="ID_SEDE" ColumnName="ID_SEDE" />
+                <ScalarProperty Name="ID_PERIODO_ACADEMICO" ColumnName="ID_PERIODO_ACADEMICO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODALIDAD_ESTUDIO">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.MODALIDAD_ESTUDIO">
+              <MappingFragment StoreEntitySet="MODALIDAD_ESTUDIO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MODALIDAD" ColumnName="MODALIDAD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAIS">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.PAIS">
+              <MappingFragment StoreEntitySet="PAIS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PAIS1" ColumnName="PAIS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PERIODO_ACADEMICO">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.PERIODO_ACADEMICO">
+              <MappingFragment StoreEntitySet="PERIODO_ACADEMICO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROGRAMA_ACADEMICO">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.PROGRAMA_ACADEMICO">
+              <MappingFragment StoreEntitySet="PROGRAMA_ACADEMICO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PROGRAMA_ACADEMICO1" ColumnName="PROGRAMA_ACADEMICO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SEDE">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.SEDE">
+              <MappingFragment StoreEntitySet="SEDE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SEDE1" ColumnName="SEDE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_ASPIRANTE">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.TIPO_ASPIRANTE">
+              <MappingFragment StoreEntitySet="TIPO_ASPIRANTE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_DOCUMENTO">
+            <EntityTypeMapping TypeName="PRUEBA_UAMModel.TIPO_DOCUMENTO">
+              <MappingFragment StoreEntitySet="TIPO_DOCUMENTO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ESTADO_CIVIL" ColumnName="ESTADO_CIVIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="ASPIRANTES_INSCRITOS" FunctionName="PRUEBA_UAMModel.Store.ASPIRANTES_INSCRITOS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PRUEBA_UAMModel.ASPIRANTES_INSCRITOS_Result">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="SEDE" ColumnName="SEDE" />
+                <ScalarProperty Name="PROGRAMA_ACADEMICO" ColumnName="PROGRAMA_ACADEMICO" />
+                <ScalarProperty Name="PERIODO" ColumnName="PERIODO" />
+                <ScalarProperty Name="NOMBRES" ColumnName="NOMBRES" />
+                <ScalarProperty Name="APELLIDOS" ColumnName="APELLIDOS" />
+                <ScalarProperty Name="IDENTIFICACION" ColumnName="IDENTIFICACION" />
+                <ScalarProperty Name="ESTADO_CIVIL" ColumnName="ESTADO_CIVIL" />
+                <ScalarProperty Name="GENERO" ColumnName="GENERO" />
+                <ScalarProperty Name="ESTADO_CIVIL1" ColumnName="ESTADO_CIVIL1" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

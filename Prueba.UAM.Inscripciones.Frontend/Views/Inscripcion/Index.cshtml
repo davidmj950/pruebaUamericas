@@ -1,0 +1,229 @@
+﻿@model Prueba.UAM.Inscripciones.Entities.IncripcionesAspirante
+@{
+    ViewBag.Title = "Index";
+}
+<div class="d-flex">
+    <h2>Admisiones </h2><br />
+    <h2>Informacion de inscripcion </h2><p>
+</div>
+<p>Sistema academico SAMI 2.0</p>
+@using (Html.BeginForm("Create", "Inscripcion", null, FormMethod.Post, new { @id = "Create" }))
+{
+    @*@Html.AntiForgeryToken()*@
+<form action="" method="post">
+    <section id="main">
+
+        <div class="tabset">
+            <!-- Tab 1 -->
+            <input type="radio" name="tabset" id="tab1" aria-controls="marzen" checked>
+            <label for="tab1">Informacion de inscripcion</label>
+            <!-- Tab 2 -->
+            <input type="radio" name="tabset" id="tab2" aria-controls="rauchbier">
+            <label for="tab2">Informacion personal</label>
+
+            <div class="tab-panels">
+                <section id="marzen" class="tab-panel">
+                    <div>
+                        <div class="tab-content">
+
+                            <div class="form-grid">
+                                <div class="form-group col-md-6">
+                                    <div class="bd-example">
+                                        <label for="TipoModalidad" class="form-label">Tipo de aspirante </label><br />
+                                        @foreach (var gender in ViewBag.TipoAspirantes)
+                                        {
+                                            <div class="form-check form-check-inline form-switch">
+                                                <input class="form-check-input" type="radio" name="flexRadioDefault" value="@gender.Id">
+                                                <label class="form-check-label " style="font-weight: 100; text-transform: lowercase; " for="@gender.Id">
+                                                    @gender.Tipo
+                                                </label>
+                                            </div>
+                                        }
+                                        <label></label><label></label>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="">
+                                        <label for="TipoModalidad" class="form-label">Modalidad</label>
+                                        @Html.DropDownListFor(model => model.IdModalidad, new SelectList(ViewBag.Modalidad, "Id", "TipoModalidad"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                    </div>
+                                    <label></label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="">
+                                        <label for="ProgramasAcademicos" class="form-label">Programa academico</label>
+                                        @Html.DropDownListFor(model => model.IdProgramaAcademico, new SelectList(ViewBag.ProgramasAcademicos, "Id", "Programa"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                    </div>
+                                    <label></label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="">
+                                        <label for="Sede" class="form-label">Sede</label>
+                                        @Html.DropDownListFor(model => model.IdSede, new SelectList(ViewBag.Sedes, "Id", "Nombre"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                    </div>
+                                    <label></label>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <div class="">
+                                        <label for="PeriodoAcademico" class="form-label">Periodo academico</label>
+                                        @Html.DropDownListFor(model => model.IdPeriodoAcademico, new SelectList(ViewBag.PeriodosAcademicos, "Id", "Periodo"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+                <section id="rauchbier" class="tab-panel">
+                    <div>
+                        <div class="">
+                            @*<div class="form-row"></div>*@
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="" class="form-label">Primer nombre </label><br />
+                                    @Html.TextBoxFor(model => model.Aspirante.PrimerNombre, new { @type = "Text", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="segundoNombre" class="form-label">Segundo nombre </label><br />
+                                    @Html.TextBoxFor(model => model.Aspirante.SegundoNombre, new { @type = "Text", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="primerApellido" class="form-label">Primer apellido </label><br />
+                                    @Html.TextBoxFor(model => model.Aspirante.PrimerApellido, new { @type = "Text", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="segundoApellido" class="form-label">Segundo apellido </label><br />
+                                    @Html.TextBoxFor(model => model.Aspirante.SegundoApellido, new { @type = "Text", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="fechaNacimiento" class="form-label">Fecha de nacimiento </label><br />
+                                    @Html.TextBoxFor(model => model.Aspirante.FechaNacimiento, new { @type = "date", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="paisNacimiento" class="form-label">Pais de nacimiento </label><br />
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Seleccione</option>
+                                        @foreach (var pais in ViewBag.Paises)
+                                        {
+                                            <option value="@pais.Id">@pais.Nombre_Pais</option>
+
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="departamentoNacimiento" class="form-label">Departamento de nacimiento </label><br />
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Seleccione</option>
+                                        @foreach (var pais in ViewBag.Departamentos)
+                                        {
+                                            <option value="@pais.Id">@pais.Nombre_Departamento</option>
+
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="ciudadNacimiento" class="form-label">Ciudad de nacimiento </label><br />
+                                    @Html.DropDownListFor(model => model.Aspirante.IdCiudadNacimiento, new SelectList(ViewBag.Ciudades, "Id", "Nombre_Ciudad"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="GrupoSanguineo" class="form-label">Grupo sanguineo </label><br />
+                                    @Html.DropDownListFor(model => model.Aspirante.GrupoSanguineo, new SelectList(ViewBag.GrupoSanguineos, "Id", "Nombre_GrupoSanguineo"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="NumeroDocumento" class="form-label">Numero de documento </label><br />
+                                    @Html.TextBoxFor(model => model.Aspirante.Identificacion, new { @type = "text", @class = "form-control" })
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="paisexpedicion" class="form-label">Pais de expedicion </label><br />
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Seleccione</option>
+                                        @foreach (var pais in ViewBag.Paises)
+                                        {
+                                            <option value="@pais.Id">@pais.Nombre_Pais</option>
+
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="departamentoexpedicion" class="form-label">Departamento de expedicion </label><br />
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Seleccione</option>
+                                        @foreach (var pais in ViewBag.Departamentos)
+                                        {
+                                            <option value="@pais.Id">@pais.Nombre_Departamento</option>
+
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="ciudadexpedicion" class="form-label">Ciudad de expedicion </label><br />
+                                    @Html.DropDownListFor(model => model.Aspirante.IdCiudadExpedicion, new SelectList(ViewBag.Ciudades, "Id", "Nombre_Ciudad"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="fechaExpedicion" class="form-label">Fecha de expedicion </label><br />
+                                    @Html.TextBoxFor(model => model.Aspirante.FechaExpedicion, new { @type = "date", @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="genero" class="form-label">Genero </label><br />
+                                    @Html.DropDownListFor(model => model.Aspirante.IdGenero, new SelectList(ViewBag.Generos, "Id", "Nombre_Genero"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="">
+                                    <label for="estadoCivil" class="form-label">Estado civil </label><br />
+                                    @Html.DropDownListFor(model => model.Aspirante.IdEstadoCivil, new SelectList(ViewBag.EstadoCivil, "Id", "Nombre_Estado_Civil"), "- Selecciona -", new { @class = "form-select", id = "", Selected = true })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+            <div class="d-flex mt-3">
+                <a class="btn btn-danger" href="@Url.Action("Index","Home")">Cancelar</a>&nbsp;
+                <input type="submit" class="btn btn-primary" name="" value="Guardar" form="Create">
+            </div>
+        </div>
+    </section>
+</form>
+}
+
+<script>
+    function callChangefunc(val) {
+        window.location.href = "/Inscripcion/Departamentos?idPais=" + val;
+    }
+
+    function callChangefunc2(val) {
+        window.location.href = "/Inscripcion/Ciudades?idDepartamento=" + val;
+    }
+</script>

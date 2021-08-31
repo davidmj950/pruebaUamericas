@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b0821737d9b450aa75ee8fb0620f8ee" Name="Diagram1">
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.ASPIRANTE" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.CIUDAD" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.DEPARTAMENTO" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.ESTADO_CIVIL" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.GENERO" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.GRUPO_SANGUINEO" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.INSCRIPCION_ASPIRANTE" Width="1.5" PointX="9.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.MODALIDAD_ESTUDIO" Width="1.5" PointX="7.5" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.PAIS" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.PERIODO_ACADEMICO" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.PROGRAMA_ACADEMICO" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.SEDE" Width="1.5" PointX="7.5" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.TIPO_ASPIRANTE" Width="1.5" PointX="7.5" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PRUEBA_UAMModel.TIPO_DOCUMENTO" Width="1.5" PointX="5.25" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__ASPIRANTE__ID_CI__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__ASPIRANTE__ID_CI__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__ASPIRANTE__ID_ES__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__ASPIRANTE__ID_GE__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__ASPIRANTE__ID_GR__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__ASPIRANTE__ID_TI__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__INSCRIPCI__ID_AS__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__CIUDAD__ID_DEPAR__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__DEPARTAME__ID_PA__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__INSCRIPCI__ID_MO__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__INSCRIPCI__ID_PE__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__INSCRIPCI__ID_PR__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__INSCRIPCI__ID_SE__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="PRUEBA_UAMModel.FK__INSCRIPCI__ID_TI__571DF1D5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

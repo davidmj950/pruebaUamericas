@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Prueba ingreso UAM</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="~/Content/css/estilos.css" rel="stylesheet">
+    <style>
+
+        header {
+            background: #666;
+            color: #fff;;
+            margin: 0 auto;
+        }
+
+        body {
+            font-size: 1.5rem;
+        }
+
+        /*
+ CSS for the main interaction
+*/
+        .tabset > input[type="radio"] {
+            position: absolute;
+            left: -200vw;
+        }
+
+        .tabset .tab-panel {
+            display: none;
+        }
+
+        .tabset > input:first-child:checked ~ .tab-panels > .tab-panel:first-child,
+        .tabset > input:nth-child(3):checked ~ .tab-panels > .tab-panel:nth-child(2),
+        .tabset > input:nth-child(5):checked ~ .tab-panels > .tab-panel:nth-child(3),
+        .tabset > input:nth-child(7):checked ~ .tab-panels > .tab-panel:nth-child(4),
+        .tabset > input:nth-child(9):checked ~ .tab-panels > .tab-panel:nth-child(5),
+        .tabset > input:nth-child(11):checked ~ .tab-panels > .tab-panel:nth-child(6) {
+            display: block;
+        }
+
+        /*
+ Styling
+*/
+        body {
+            font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
+            color: #333;
+            font-weight: 300;
+        }
+
+        .tabset > label {
+            position: relative;
+            display: inline-block;
+            padding: 15px 15px 25px;
+            border: 1px solid transparent;
+            border-bottom: 0;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+            .tabset > label::after {
+                content: "";
+                position: absolute;
+                left: 15px;
+                bottom: 10px;
+                width: 22px;
+                height: 4px;
+                background: #8d8d8d;
+            }
+
+            .tabset > label:hover,
+            .tabset > input:focus + label {
+                color: #06c;
+            }
+
+                .tabset > label:hover::after,
+                .tabset > input:focus + label::after,
+                .tabset > input:checked + label::after {
+                    background: #06c;
+                }
+
+        .tabset > input:checked + label {
+            border-color: #ccc;
+            border-bottom: 1px solid #fff;
+            margin-bottom: -1px;
+        }
+
+        .tab-panel {
+            padding: 30px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        /*
+ Demo purposes only
+*/
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
+
+
+        .tabset {
+            max-width: 65em;
+        }
+
+        .bd-example {
+            border-radius: 5px;
+            padding: 3px;
+            background-color: rgba(128, 128, 128, 0.3);
+        }
+
+        input[type=radio] { font-weight: 100 !important; }
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inscripcion de aspirantes", "Index", "Inscripcion")</li>
+                    <li>@Html.ActionLink("Gestion de inscritos", "Index", "Gestion")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Aplicacion de prueba de ingreso desarrollador UAM</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
